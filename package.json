@@ -20,6 +20,7 @@
     "express": "^5.1.0",
     "fast-two-sms": "^3.0.0",
     "firebase": "^11.10.0",
+    "is-ci": "^4.1.0",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.16.0",
     "multer": "^2.0.1",
