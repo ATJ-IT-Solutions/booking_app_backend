@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 import doctorModel from '../models/doctorModel.js'
 import appointmentModel from '../models/appointmentModel.js'
 import sendMail from './emailController.js'
-import fast2sms from 'fast-two-sms';
+// import fast2sms from 'fast-two-sms';
 
 
 // API to register user
@@ -177,18 +177,18 @@ const fastAPI = 'ujByv0zpaa3I8SMEOuKxaPUzIbzzZkG9kqi9I7dC65KprIGAhpaXuWYBDw3L';
   //    .then(message => console.log(message.sid))
   // .catch(err => console.error(err));
 
-  var options = {authorization : 'ujByv0zpaa3I8SMEOuKxaPUzIbzzZkG9kqi9I7dC65KprIGAhpaXuWYBDw3L' , message : 'Hi' ,  numbers : ['9539539764']} 
-  // Function to send SMS
-  const smsSend = async ()=> {
-  try {
-    console.log('Sending SMS with options:', options);
-    const response = await fast2sms.sendMessage(options);
-    console.log('Fast2SMS Response:', response);
-  } catch (error) {
-    console.error('Error sending SMS:', error.response || error.message || error);
-  }
-}
-smsSend();
+//   var options = {authorization : 'ujByv0zpaa3I8SMEOuKxaPUzIbzzZkG9kqi9I7dC65KprIGAhpaXuWYBDw3L' , message : 'Hi' ,  numbers : ['9539539764']} 
+//   // Function to send SMS
+//   const smsSend = async ()=> {
+//   try {
+//     console.log('Sending SMS with options:', options);
+//     const response = await fast2sms.sendMessage(options);
+//     console.log('Fast2SMS Response:', response);
+//   } catch (error) {
+//     console.error('Error sending SMS:', error.response || error.message || error);
+//   }
+// }
+// smsSend();
     //save new slot in doctor data
     await doctorModel.findByIdAndUpdate(docId,{slots_booked})
 
