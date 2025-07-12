@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken'
 import doctorModel from '../models/doctorModel.js'
 import appointmentModel from '../models/appointmentModel.js'
 import sendMail from './emailController.js'
+import sendMessage from './smsController.js'
 // import fast2sms from 'fast-two-sms';
 
 
@@ -165,7 +166,7 @@ const fastAPI = 'ujByv0zpaa3I8SMEOuKxaPUzIbzzZkG9kqi9I7dC65KprIGAhpaXuWYBDw3L';
   <p>Please take necessary action.</p> `;
 
   await sendMail(docData.email,emailSubjectDoc,emailTextDoc,emailHtmlDoc)
-
+  await sendMessage()
   // client.messages
   //   .create({
   //               from: 'whatsapp:+14155238886',
