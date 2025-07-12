@@ -13,7 +13,7 @@ const sendMessage = async () => {
         to: recipientNumber,
         type: 'template',
         template: {
-          name: 'hello_world', // Template name must be approved
+          name: 'dr_sibinew', // Template name must be approved
           language: { code: 'en_US' }
         }
       },
