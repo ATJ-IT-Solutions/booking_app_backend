@@ -1,26 +1,35 @@
 import axios from 'axios'
 
-const sendSms = async (to, message) => {
-  try {
-    const response = await axios.get('https://www.fast2sms.com/dev/bulkV2', {
-      headers: {
-        authorization: process.env.FAST2SMS_API_KEY,
-      },
-      params: {
-        route: 'q',
-        message: message,
-        language: 'english',
-        flash: 0,
-        numbers: to, // comma-separated for multiple numbers
-      }
-    });
+const token = 'ujByv0zpaa3I8SMEOuKxaPUzIbzzZkG9kqi9I7dC65KprIGAhpaXuWYBDw3L'; // Replace with your token
+const phoneNumberId = '15558000116'; // From Meta dashboard
+const recipientNumber = '919539539764'; // e.g., '919876543210'
 
-    console.log('SMS sent:', response.data);
-    return { success: true, data: response.data };
+const sendMessage = async () => {
+  try {
+    const response = await axios.post(
+      `https://graph.facebook.com/v19.0/${phoneNumberId}/messages`,
+      {
+        messaging_product: 'whatsapp',
+        to: recipientNumber,
+        type: 'template',
+        template: {
+          name: 'hello_world', // Template name must be approved
+          language: { code: 'en_US' }
+        }
+      },
+      {
+        headers: {
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    console.log('Message sent:', response.data);
   } catch (error) {
-    console.error('SMS send failed:', error.response?.data || error.message);
-    return { success: false, error: error.message };
+    console.error('Error:', error.response?.data || error.message);
   }
 };
 
-export default sendSms
+
+export default sendMessage
